@@ -17,7 +17,7 @@ public class Departamento extends AbstractEntity<Long>{
 	private String nome;
 	
 	@OneToMany(mappedBy = "departamento")
-	private List<Cargo> cargos = new ArrayList<Cargo>();
+	private List<Cargo> cargos = new ArrayList<>();
 
 	public Departamento() {
 	}

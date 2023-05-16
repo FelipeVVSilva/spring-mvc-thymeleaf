@@ -1,9 +1,13 @@
 package com.mvc.demo.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,6 +21,9 @@ public class Cargo extends AbstractEntity<Long>{
 	@ManyToOne
 	@JoinColumn(name = "id_departamento_fk")
 	private Departamento departamento;
+	
+	@OneToMany(mappedBy = "cargo")
+	private List<Funcionario> funcionarios = new ArrayList<>();
 
 	public Cargo(String nome, Departamento departamento) {
 		super();
@@ -35,5 +42,11 @@ public class Cargo extends AbstractEntity<Long>{
 	}
 	public void setDepartamento(Departamento departamento) {
 		this.departamento = departamento;
+	}
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
+	}
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
 	}
 }
