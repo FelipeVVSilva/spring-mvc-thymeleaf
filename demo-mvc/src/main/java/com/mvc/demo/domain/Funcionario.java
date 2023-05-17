@@ -12,14 +12,14 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "FUNNCIONARIOS")
+@Table(name = "FUNCIONARIOS")
 @SuppressWarnings("serial")
 public class Funcionario extends AbstractEntity<Long> {
 
 	@Column(nullable = false, unique = true)
 	private String name;
 	
-	@Column(nullable = false, columnDefinition = "DECIMAL(7,2), DEFAULT 0.00")
+	@Column(nullable = false, columnDefinition = "DECIMAL(7,2) DEFAULT 0.00")
 	private BigDecimal salario;
 	
 	@Column(name = "data_entrada", nullable = false, columnDefinition = "DATE")
